@@ -43,6 +43,7 @@ public class TvShowResource {
 
     @GET
     @Path("{title}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getOneById(@PathParam("title") String title) {
         List<TvShow> show = this.tvShows.stream().filter(s -> s.getTitle().equalsIgnoreCase(title)).limit(1).collect(Collectors.toList());
         if (show.size() == 0) {
